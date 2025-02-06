@@ -1,0 +1,7 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - name: Dependencies & Database
+    init: |
+      bundle install
+      rails db:create
