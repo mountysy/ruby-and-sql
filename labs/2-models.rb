@@ -21,15 +21,50 @@ Salesperson.destroy_all
 
 # 2. insert 1-2 rows in salespeople table.
 
+new_salesperson = Salesperson.new   # this defines a row (variable), which is essentially a hash
+new_salesperson["first_name"] = "Ben"
+new_salesperson["last_name"] = "Block"
+new_salesperson["email"] = "bblock@kellogg.edu"
+new_salesperson.save
+puts new_salesperson.inspect
+
+
+new_salesperson = Salesperson.new
+new_salesperson["first_name"] = "Erick"
+new_salesperson["last_name"] = "Cha"
+new_salesperson["email"] = "echa@kellogg.edu"
+new_salesperson.save
+puts new_salesperson.inspect
+
+
+
 # 3. write code to display how many salespeople rows are in the database
+
+puts "There are #{Salesperson.all.count} salespeople."
+
 
 # ---------------------------------
 # Salespeople: 2
 
 # 4. modify/update column data for a row in the salespeople table.
 
+ben = Salesperson.find_by ({"first_name" => "Ben", "last_name" => "Block"})
+ben["last_name"] = "Elliot"
+ben.save
+puts ben.inspect
+
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
+
+people = Salesperson.all   #this gives us all the rows in an [array] format
+
+for giraffe in people  
+    first_name = giraffe["first_name"]
+    last_name = giraffe["last_name"]
+    name = "#{first_name} #{last_name}"
+    puts name
+end
+
 
 # ---------------------------------
 # Salespeople: 2
