@@ -112,6 +112,12 @@ erick_act = Activity.where({"salesperson_id" => salesperson2["id"]})
 puts "#{salesperson1["first_name"]} #{salesperson1["last_name"]}: #{ben_act.count} activities"
 puts "#{salesperson2["first_name"]} #{salesperson2["last_name"]}: #{erick_act.count} activities"
 
+#aternative:
+salespeople = Salesperson.all
+for salesperson in salespeople
+    act = Activity.where({"salesperson_id" => salesperson["id"]})
+    puts "#{salesperson["first_name"]} #{salesperson["last_name"]}: #{act.count} activities"  
+end
 
 # ---------------------------------
 # Ben Block: 3 activities
